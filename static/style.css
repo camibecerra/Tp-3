@@ -1,0 +1,239 @@
+/* - Variables - */
+:root {
+ --azul: #1a2a5e;
+ --verde: #4a8a7a;
+ --rosa: #f2a8b0;
+ --beige: #f5f0e8;
+ --beige-oscuro: #ebe4d5;
+ --blanco: #ffffff;
+ --texto: #2a2a2a;
+ --texto-suave: #5a5a5a;
+}
+
+
+/* - Base - */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+
+body {
+ font-family: Georgia, serif;
+ background-image: url('_f2a8b.png');
+ background-size: 1200px;
+ color: var(--texto);
+ line-height: 1.7;
+}
+
+
+/* - Header - */
+header {
+ background-color: var(--azul);
+ padding: 1.2rem 2.5rem;
+}
+
+
+nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding-left: 40px;
+}
+
+
+nav h1 {
+ color: var(--beige);
+ font-size: 1.8rem;
+ font-family: Georgia, serif;
+ letter-spacing: 0.04em;
+ font-weight: normal;
+}
+
+
+nav ul {
+ list-style: none;
+ display: flex;
+ gap: 2rem;
+}
+
+
+nav ul li a {
+ color: var(--beige);
+ text-decoration: none;
+ font-size: 0.95rem;
+ letter-spacing: 0.05em;
+ transition: color 0.2s;
+}
+
+
+nav ul li a:hover {
+ color: var(--rosa);
+}
+
+
+/* - Hero - */
+.hero {
+ background-color: var(--azul);
+ color: white;
+ padding: 5rem 3rem 4rem;
+}
+
+
+.hero-inner {
+ max-width: 800px;
+ margin: 0 auto;
+ border-left: 3px solid var(--rosa);
+ padding-left: 1.8rem;
+}
+
+
+.hero h1 {
+ font-size: clamp(1.5rem, 3vw, 2.2rem);
+ margin-bottom: 1.2rem;
+ line-height: 1.35;
+}
+
+
+.hero h2 {
+ font-size: 1.1rem;
+ font-weight: 400;
+ color: var(--rosa);
+ line-height: 1.6;
+}
+
+
+/* - Main - */
+main {
+ max-width: 800px;
+ margin: 0 auto;
+ padding: 3rem 2rem 3rem;
+}
+
+
+/* - Seccions - */
+section {
+ background-color: var(--blanco);
+ border-radius: 12px;
+ padding: 2rem 2.2rem;
+ margin-bottom: 1.5rem;
+ box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+.objetivos {
+ border-top: 3px solid var(--verde);
+}
+
+
+.problematicas {
+ border-top: 3px solid var(--verde);
+}
+
+
+h3 {
+ font-size: 1.05rem;
+ color: var(--azul);
+ margin-bottom: 0.7rem;
+ text-transform: uppercase;
+ letter-spacing: 0.06em;
+}
+
+
+p {
+ font-size: 1rem;
+ color: var(--texto-suave);
+}
+
+
+/* - Boton - */
+.btn-container {
+ margin-top: 2.5rem;
+}
+
+
+.btn-graficos {
+ background-color: var(--azul);
+ color: white;
+ border: none;
+ padding: 0.8rem 2.8rem;
+ font-size: 0.95rem;
+ font-family: Georgia, serif;
+ letter-spacing: 0.08em;
+ border-radius: 8px;
+ cursor: pointer;
+ transition: background-color 0.2s, transform 0.15s;
+}
+
+
+.btn-graficos:hover {
+ background-color: var(--verde);
+ transform: translateY(-2px);
+}
+
+
+/* - Footer - */
+.footer{
+ font-size: 1rem;
+ color: var(--blanco);
+}
+
+
+footer {
+ background-color: var(--azul);
+ color: var(--beige);
+ text-align: center;
+ padding: 1.4rem;
+ font-size: 0.85rem;
+ letter-spacing: 0.04em;
+}
+
+
+/* - Responsive - */
+@media (max-width: 600px) {
+ .hero {
+   padding: 3.5rem 1.5rem 3rem;
+ }
+
+
+ main {
+   padding: 2.5rem 1.5rem 4rem;
+ }
+
+
+ section {
+   padding: 1.6rem 1.5rem;
+ }
+}
+
+
+.divider {
+ border: none;
+ border-top: 1px solid var(--beige-oscuro);
+ margin: 1.5rem 0;
+}
+
+
+.problematicas h4 {
+ font-size: 1rem;
+ color: var(--azul);
+ font-weight: normal;
+ font-style: italic;
+ margin-bottom: 1.2rem;
+}
+
+
+.problematicas p {
+ margin-bottom: 1.2rem;
+}
+
+
+.formulario {
+ border-top: 3px solid var(--verde);
+}
+
+
+.formulario p {
+ margin-bottom: 1.2rem;
+}
