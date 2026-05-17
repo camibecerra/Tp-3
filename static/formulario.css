@@ -1,0 +1,249 @@
+.formulario{
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  background-color: transparent;
+}
+
+.form-hero {
+  background-color: var(--azul);
+  color: white;
+  padding: 7rem 3rem 5rem;
+}
+
+.formulario-hero-img {
+  width: 591px;
+  height: 370px;
+}
+
+.form-hero h1 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+.form-hero h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--rosa);
+  line-height: 1.6;
+}
+
+.form-container {
+  background-color: var(--blanco);
+  border-top: 3px solid var(--verde);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 2.5rem 3rem;
+  margin-bottom: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-grupo label {
+  font-size: 0.9rem;
+  color: var(--azul);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-grupo label span {
+  text-transform: none;
+  color: var(--texto-suave);
+  font-size: 0.82rem;
+  letter-spacing: 0;
+}
+
+.form-grupo input,
+.form-grupo select {
+  padding: 0.65rem 1rem;
+  border: 1.5px solid var(--beige-oscuro);
+  border-radius: 8px;
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--texto);
+  background-color: var(--beige-claro, #faf8f4);
+  transition: border-color 0.2s;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus {
+  outline: none;
+  border-color: var(--verde);
+}
+
+.form-submit {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Resultado */
+.resultado-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.resultado-puntaje {
+  background-color: var(--azul);
+  color: white;
+  padding: 2.5rem 3rem;
+  text-align: center;
+}
+
+.resultado-puntaje h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--rosa);
+  margin-bottom: 1rem;
+}
+
+.puntaje-numero {
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.puntaje-numero span {
+  font-size: 2rem;
+  color: var(--rosa);
+}
+
+.puntaje-label {
+  font-size: 1.1rem;
+  color: var(--beige);
+  font-style: italic;
+}
+
+.resultado-aspectos {
+  background-color: var(--blanco);
+  border-top: 3px solid var(--rosa);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 2rem 3rem;
+}
+
+.resultado-aspectos h2,
+.resultado-comparacion h2 {
+  font-size: 1rem;
+  color: var(--azul);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 1.2rem;
+}
+
+.aspectos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.aspecto-card {
+  padding: 1.2rem 1.4rem;
+  border-radius: 8px;
+  border-top: 3px solid var(--verde);
+  background-color: var(--beige-claro, #faf8f4);
+}
+
+.aspecto-card.malo {
+  border-top-color: #e07070;
+}
+
+.aspecto-card.regular {
+  border-top-color: #e8b84b;
+}
+
+.aspecto-card.bueno {
+  border-top-color: var(--verde);
+}
+
+.aspecto-card h3 {
+  font-size: 0.85rem;
+  color: var(--azul);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.aspecto-card p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+
+.resultado-comparacion {
+  background-color: var(--blanco);
+  border-top: 3px solid var(--verde);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 2rem 3rem;
+}
+
+.comparacion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.comparacion-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.2rem;
+  background-color: var(--beige-claro, #faf8f4);
+  border-radius: 8px;
+}
+
+.comp-label {
+  font-size: 0.8rem;
+  color: var(--azul);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.comp-tuvalor {
+  font-size: 1rem;
+  color: var(--texto);
+  font-weight: bold;
+}
+
+.comp-promedio {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+@media (max-width: 700px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container {
+    padding: 1.8rem 1.5rem;
+  }
+
+  .resultado-puntaje {
+    padding: 2rem 1.5rem;
+  }
+}
+
+#resultado {
+  display: none;
+}
+
+.error-msg {
+  font-size: 0.8rem;
+  color: #e07070;
+  margin-top: 0.2rem;
+}

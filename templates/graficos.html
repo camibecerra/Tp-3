@@ -1,234 +1,205 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- <title>Gráficos – Salud & Sueño</title>
- <link rel="stylesheet" href="static/style.css" />
- <link rel="stylesheet" href="static/graficos.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gráficos – Salud & Sueño</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='graficos.css') }}" />
 </head>
 <body>
 
+  <header>
+    <nav>
+      <h1>Salud & Sueño</h1>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/graficos">Gráficos</a></li>
+        <li><a href="/predicciones">Predicciones</a></li>
+        <li><a href="/formulario">Formulario</a></li>
+      </ul>
+    </nav>
+  </header>
 
- <header>
-   <nav>
-     <h1>Salud & Sueño</h1>
-     <ul>
-       <li><a href="index.html">Inicio</a></li>
-       <li><a href="graficos.html">Gráficos</a></li>
-       <li><a href="predicciones.html">Predicciones</a></li>
-       <li><a href="formulario.html">Formulario</a></li>
-     </ul>
-   </nav>
- </header>
+  <main>
 
+    <section class="graficos">
+        <div class="graficos-hero">
+            <div class="graficos-hero-texto">
+                <h1>¿Qué se puede observar actualmente?:</h1>
+                <h2>Se realiza un analisis de los datos recolectados de 15.000 personas, 
+                    para entender cómo el uso de pantallas y el estrés impactan en el sueño.</h2>
+            </div>
+        </div>
+        <img class="graficos-hero-img" src="{{ url_for('static', filename='img_graficos.png') }}" alt="variables de sueño">
+    </section>
 
- <main>
+    <div class="graficos-lista">
 
+      <!-- CATEGORÍA 1 -->
+      <div class="categoria">
+        <h2 class="categoria-titulo">Relacionado a la edad:</h2>
 
-   <section class="graficos">
-       <div class="graficos-hero">
-           <div class="graficos-hero-texto">
-               <h1>¿Qué se puede observar actualmente?:</h1>
-               <h2>Se realiza un analisis de los datos recolectados de 15.000 personas,
-                   para entender cómo el uso de pantallas y el estrés impactan en el sueño.</h2>
-           </div>
-       </div>
-       <img class="graficos-hero-img" src="img_graficos.png" alt="descripción">
-   </section>
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs age.png') }}" alt="sleep_duration_hours vs age"></div></div>
+          <div class="grafico-texto">
+            <h3>Edad y Horas de descanso:</h3>
+            <p>Las horas dormidas son bastante estables en todos los grupos generacionales, rondando entre 6,35 y 6,7 horas. No se observa que las personas mayores duerman significativamente más o menos que los jóvenes. El promedio general está por debajo de las 8 horas recomendadas.</p>
+          </div>
+        </div>
 
+        <div class="grafico-fila invertida">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/daily_screen_time_hours vs age.png') }}" alt="daily_screen_time_hours vs age"></div></div>
+          <div class="grafico-texto">
+            <h3>Edad y Uso diario de pantalla:</h3>
+            <p>El uso de pantallas se mantiene relativamente estable entre los 18 y 60 años, variando entre 5,2 y 5,7 horas diarias. No hay una tendencia clara por edad, lo que sugiere que el tiempo de pantalla es un hábito generalizado independiente de la generación.</p>
+          </div>
+        </div>
 
-   <div class="graficos-lista">
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/stress_level vs age.png') }}" alt="stress_level vs age"></div></div>
+          <div class="grafico-texto">
+            <h3>Edad y Nivel de estrés:</h3>
+            <p>El nivel de estrés se mantiene relativamente constante entre los 18 y 60 años, variando entre 6,7 y 7,25/10. No hay una tendencia clara por edad, lo que indica que el estrés alto es una dificultad permanente a través de todas las generaciones.</p>
+          </div>
+        </div>
+      </div>
 
+      <!-- CATEGORÍA 2 -->
+      <div class="categoria">
+        <h2 class="categoria-titulo">Relacionado a la ocupación:</h2>
 
-     <!-- CATEGORÍA 1 -->
-     <div class="categoria">
-       <h2 class="categoria-titulo">Relacionado a la edad:</h2>
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/daily_screen_time_hours vs occupation.png') }}" alt="daily_screen_time_hours vs occupation"></div></div>
+          <div class="grafico-texto">
+            <h3>Ocupación y Uso diario de pantalla:</h3>
+            <p>Los estudiantes son quienes más tiempo pasan frente a pantallas (5,63 hs), seguidos por los managers. Los freelancers son los que menos usan (5,41 hs). Esto puede relacionarse con el uso de lo digital relacionado a los estudios y la gestión.</p>
+          </div>
+        </div>
 
+        <div class="grafico-fila invertida">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs occupation.png') }}" alt="sleep_duration_hours vs occupation"></div></div>
+          <div class="grafico-texto">
+            <h3>Ocupación y Horas de descanso:</h3>
+            <p>Los diseñadores son los que más duermen (6,54 hs), mientras que los médicos son los que menos (6,45 hs). Las diferencias entre ocupaciones son pequeñas, pero los estudiantes y docentes se ubican entre quienes más horas duermen, posiblemente debido a la mayor flexibilidad horaria.</p>
+          </div>
+        </div>
 
-       <div class="grafico-fila">
-        <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 1</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs age.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Edad y Horas de descanso</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/stress_level vs occupation.png') }}" alt="stress_level vs occupation"></div></div>
+          <div class="grafico-texto">
+            <h3>Ocupación y Nivel de estrés:</h3>
+            <p>Los estudiantes son el grupo con mayor estrés (7,18/10; lo cual se puede deber a la presión académica, los exámenes y la incertidumbre sobre el futuro), mientras que los diseñadores y docentes presentan los niveles más bajos (6,88 y 6,90/10, respectivamente). Aunque, de todas formas, ninguna ocupación baja del 6,88, lo que refleja que el estrés elevado es una constante en todos los grupos, sin excepción.</p>
+          </div>
+        </div>
+      </div>
 
+      <!-- CATEGORÍA 3 -->
+      <div class="categoria">
+        <h2 class="categoria-titulo">Relacionado al estrés:</h2>
 
-       <div class="grafico-fila invertida">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 2</div><img src="{{ url_for('static', filename='plots/daily_screen_time_hours vs age.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Edad y Uso diario de pantalla</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_quality_score vs stress_level.png') }}" alt="sleep_quality_score vs stress_level"></div></div>
+          <div class="grafico-texto">
+            <h3>Estrés y Calidad de dormir:</h3>
+            <p>Hay una relación negativa muy marcada: Con estrés 1/10 la calidad de sueño es 9,3/10 (aproximadamente), y con estrés 10/10 baja a 4,5/10 (aproximadamente). El estrés es uno de los factores que más impacta en la calidad del sueño de todo el análisis.</p>
+          </div>
+        </div>
 
+        <div class="grafico-fila invertida">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs stress_level.png') }}" alt="sleep_duration_hours vs stress_level"></div></div>
+          <div class="grafico-texto">
+            <h3>Estrés y Horas de descanso:</h3>
+            <p>Las horas dormidas no varían significativamente con el nivel de estrés, manteniéndose entre 6 y 7 horas en todos los niveles. Esto indica que el estrés no necesariamente reduce el tiempo de sueño, sino que afecta más su calidad.</p>
+          </div>
+        </div>
 
-       <div class="grafico-fila">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 3</div><img src="{{ url_for('static', filename='plots/stress_level vs age.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Edad y Nivel de estrés</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-     </div>
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/mental_fatigue_score vs stress_level.png') }}" alt="mental_fatigue_score vs stress_level"></div></div>
+          <div class="grafico-texto">
+            <h3>Estrés y Fatiga mental:</h3>
+            <p>La fatiga mental y el estrés crecen de forma casi perfectamente lineal. Un nivel de estrés de 10 corresponde a una fatiga mental de 10, y un estrés de 1 corresponde a fatiga de 1,5. Esto indica que estrés y fatiga mental son variables muy interdependientes.</p>
+          </div>
+        </div>
+      </div>
 
+      <!-- CATEGORÍA 4 -->
+      <div class="categoria">
+        <h2 class="categoria-titulo">Relacionado al tiempo en pantalla diario:</h2>
 
-     <!-- CATEGORÍA 2 -->
-     <div class="categoria">
-       <h2 class="categoria-titulo">Relacionado a la ocupación:</h2>
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/mental_fatigue_score vs daily_screen_time_hours.png') }}" alt="mental_fatigue_score vs daily_screen_time_hours"></div></div>
+          <div class="grafico-texto">
+            <h3>Uso diario de pantalla y Nivel de fatiga mental:</h3>
+            <p>Existe una relación positiva muy clara: A más horas de pantalla, mayor fatiga mental. Quienes usan 10 horas de pantalla tienen una fatiga cercana a 9,5/10, mientras que quienes usan 1 hora tienen fatiga de 3/10. Es una de las correlaciones más fuertes de los datos recolectados.</p>
+          </div>
+        </div>
 
+        <div class="grafico-fila invertida">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_quality_score vs daily_screen_time_hours.png') }}" alt="sleep_quality_score vs daily_screen_time_hours"></div></div>
+          <div class="grafico-texto">
+            <h3>Uso diario de pantalla y Calidad de dormir:</h3>
+            <p>A más horas de pantalla, hay una peor calidad de sueño, de forma muy clara y estable. Con 1 hora de pantalla la calidad es 8,2/10 (aproximadamente), mientras que con 10 horas baja a 4,5/10 (aproximadamente). Es una de las relaciones más directas de los datos recolectados, y refuerza el impacto negativo de las pantallas.</p>
+          </div>
+        </div>
+      </div>
 
-       <div class="grafico-fila">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 4</div><img src="{{ url_for('static', filename='plots/daily_screen_time_hours vs occupation.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Ocupación y Uso diario de pantalla</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
+      <!-- CATEGORÍA 5 -->
+      <div class="categoria">
+        <h2 class="categoria-titulo">Relacionado a la cantidad de horas dormidas:</h2>
 
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs sleep_quality_score.png') }}" alt="sleep_duration_hours vs sleep_quality_score"></div></div>
+          <div class="grafico-texto">
+            <h3>Horas de descanso y Calidad de dormir:</h3>
+            <p>No hay una relación lineal clara: Personas con muy baja calidad de sueño (1-2/10) muestran gran variación en horas dormidas. Esto sugiere que dormir más horas no garantiza mejor calidad, y que la calidad depende de otros factores además de la duración.</p>
+          </div>
+        </div>
 
-       <div class="grafico-fila invertida">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 5</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs occupation.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Ocupación y Horas de descanso</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
+        <div class="grafico-fila invertida">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs caffeine_intake_cups.png') }}" alt="sleep_duration_hours vs caffeine_intake_cups"></div></div>
+          <div class="grafico-texto">
+            <h3>Horas de descanso y Vasos de cafe por dia:</h3>
+            <p>A mayor consumo de cafeína, menos horas de sueño. Quienes no toman café duermen en promedio 6,54 hs, mientras que quienes toman 3 cafés duermen solo 6,46 hs. Si bien la diferencia parece pequeña, el efecto es continuo y se acumula con el tiempo, afectando la calidad del descanso a largo plazo.</p>
+          </div>
+        </div>
+      </div>
 
+      <!-- CATEGORÍA 6 -->
+      <div class="categoria">
+        <h2 class="categoria-titulo">Relacionado a la calidad de descanso:</h2>
 
-       <div class="grafico-fila">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 6</div><img src="{{ url_for('static', filename='plots/stress_level vs occupation.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Ocupación y Nivel de estrés</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-     </div>
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_quality_score vs phone_usage_before_sleep_minutes.png') }}" alt="sleep_quality_score vs phone_usage_before_sleep_minutes"></div></div>
+          <div class="grafico-texto">
+            <h3>Calidad de descanso y Uso del celular antes de dormir (min):</h3>
+            <p>El uso del celular antes de dormir tiene un impacto negativo claro: Quienes no usan el celular tienen una calidad de sueño de 7,3/10 (aproximadamente), mientras que quienes lo usan 120 minutos bajan a 5,2/10 (aproximadamente). Cada 30 minutos adicionales de celular antes de dormir, se reduce la calidad del sueño notablemente.</p>
+          </div>
+        </div>
 
+        <div class="grafico-fila invertida">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_quality_score vs mental_fatigue_score.png') }}" alt="sleep_quality_score vs mental_fatigue_score"></div></div>
+          <div class="grafico-texto">
+            <h3>Calidad de descanso y Nivel de fatiga:</h3>
+            <p>Hay una relación negativa muy fuerte: A mayor fatiga mental, peor calidad de sueño. Con fatiga 1/10 la calidad es 9/10 (aproximadamente), y con fatiga 10/10 baja a 4,5/10 (aproximadamente). Reducir la fatiga mental durante el día es clave para mejorar el descanso nocturno.</p>
+          </div>
+        </div>
 
-     <!-- CATEGORÍA 3 -->
-     <div class="categoria">
-       <h2 class="categoria-titulo">Relacionado al estrés:</h2>
+        <div class="grafico-fila">
+          <div class="grafico-imagen"><div class="grafico-placeholder"><img src="{{ url_for('static', filename='plots/sleep_quality_score vs occupation.png') }}" alt="sleep_quality_score vs occupation"></div></div>
+          <div class="grafico-texto">
+            <h3>Calidad de descanso y Ocupacion:</h3>
+            <p>Los diseñadores tienen la mejor calidad de sueño (6,33/10) y los estudiantes la peor (6,11/10). Las diferencias son pequeñas, pero estables. Las ocupaciones con más presión académica o laboral se asocian con peor descanso.</p>
+          </div>
+        </div>
+      </div>
 
+    </div>
+  </main>
 
-       <div class="grafico-fila">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 7</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs stress_level.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Estrés y Calidad de dormir</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-
-
-       <div class="grafico-fila invertida">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 8</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs stress_level.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Estrés y Horas de descanso</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-
-
-       <div class="grafico-fila">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 9</div><img src="{{ url_for('static', filename='plots/mental_fatigue_score vs stress_level.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Estrés y Fatiga mental</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-     </div>
-
-
-     <!-- CATEGORÍA 4 -->
-     <div class="categoria">
-       <h2 class="categoria-titulo">Relacionado al tiempo en pantalla diario:</h2>
-
-
-       <div class="grafico-fila">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 10</div><img src="{{ url_for('static', filename='plots/mental_fatigue_score vs daily_screen_time_hours.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Uso diario de pantalla y Nivel de fatiga mental</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-
-
-       <div class="grafico-fila invertida">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 11</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs daily_screen_time_hours.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Uso diario de pantalla y Calidad de dormir</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-     </div>
-
-
-     <!-- CATEGORÍA 5 -->
-     <div class="categoria">
-       <h2 class="categoria-titulo">Relacionado a la cantidad de horas dormidas:</h2>
-
-
-       <div class="grafico-fila">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 12</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs sleep_quality_score.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Horas de descanso y Calidad de dormir</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-
-
-       <div class="grafico-fila invertida">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 13</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs caffeine_intake_cups.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Horas de descanso y Vasos de cafe por dia</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-     </div>
-
-
-     <!-- CATEGORÍA 6 -->
-     <div class="categoria">
-       <h2 class="categoria-titulo">Relacionado a la calidad de descanso:</h2>
-
-
-       <div class="grafico-fila">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 14</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs phone_usage_before_sleep_minutes.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Calidad de descanso y Uso del celular antes de dormir (min)</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-
-
-       <div class="grafico-fila invertida">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 15</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs mental_fatigue_score.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Calidad de descanso y Nivel de fatiga</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-
-
-       <div class="grafico-fila">
-         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 16</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs occupation.png') }}"></div>
-         <div class="grafico-texto">
-           <h3>Calidad de descanso y Ocupacion</h3>
-           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
-         </div>
-       </div>
-     </div>
-
-
-   </div>
- </main>
-
-
- <footer>
-   <p class="footer">&copy; 2026 Salud & Sueño. Todos los derechos reservados.</p>
- </footer>
-
+  <footer>
+    <p class="footer">&copy; 2026 Salud & Sueño. Todos los derechos reservados.</p>
+  </footer>
 
 </body>
 </html>
