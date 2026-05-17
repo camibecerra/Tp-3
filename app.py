@@ -61,13 +61,14 @@ def generar_grafico_lineal(x_value, y_value):
 
 
 
-    plt.figure(figsize=(10,5))
+    plt.figure(figsize=(14,6))
     plt.plot(x_vals, y_promedios)
     plt.xlabel(x_value)
     plt.ylabel(y_value)
     plt.title(f"{y_value} vs {x_value}")
-
-    plt.savefig(f"static/plots/{f'{y_value} vs {x_value}'}.png")
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.savefig(f"static/plots/{f'{y_value} vs {x_value}'}.png", bbox_inches='tight')
     plt.close()
 
     return  
@@ -105,13 +106,14 @@ def generar_grafico_barra(x_value, y_value):
 
 
 
-    plt.figure(figsize=(10,5))
+    plt.figure(figsize=(14,6))
     plt.bar(x_vals, y_promedios)
     plt.xlabel(x_value)
     plt.ylabel(y_value)
     plt.title(f"{y_value} vs {x_value}")
-
-    plt.savefig(f"static/plots/{f'{y_value} vs {x_value}'}.png")
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.savefig(f"static/plots/{f'{y_value} vs {x_value}'}.png", bbox_inches='tight')
     plt.close()
 
     return  
