@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Gráficos – Salud & Sueño</title>
+ <link rel="stylesheet" href="static/style.css" />
+ <link rel="stylesheet" href="static/graficos.css" />
+</head>
+<body>
+
+
+ <header>
+   <nav>
+     <h1>Salud & Sueño</h1>
+     <ul>
+       <li><a href="index.html">Inicio</a></li>
+       <li><a href="graficos.html">Gráficos</a></li>
+       <li><a href="predicciones.html">Predicciones</a></li>
+       <li><a href="formulario.html">Formulario</a></li>
+     </ul>
+   </nav>
+ </header>
+
+
+ <main>
+
+
+   <section class="graficos">
+       <div class="graficos-hero">
+           <div class="graficos-hero-texto">
+               <h1>¿Qué se puede observar actualmente?:</h1>
+               <h2>Se realiza un analisis de los datos recolectados de 15.000 personas,
+                   para entender cómo el uso de pantallas y el estrés impactan en el sueño.</h2>
+           </div>
+       </div>
+       <img class="graficos-hero-img" src="img_graficos.png" alt="descripción">
+   </section>
+
+
+   <div class="graficos-lista">
+
+
+     <!-- CATEGORÍA 1 -->
+     <div class="categoria">
+       <h2 class="categoria-titulo">Relacionado a la edad:</h2>
+
+
+       <div class="grafico-fila">
+        <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 1</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs age.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Edad y Horas de descanso</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila invertida">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 2</div><img src="{{ url_for('static', filename='plots/daily_screen_time_hours vs age.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Edad y Uso diario de pantalla</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 3</div><img src="{{ url_for('static', filename='plots/stress_level vs age.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Edad y Nivel de estrés</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+     </div>
+
+
+     <!-- CATEGORÍA 2 -->
+     <div class="categoria">
+       <h2 class="categoria-titulo">Relacionado a la ocupación:</h2>
+
+
+       <div class="grafico-fila">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 4</div><img src="{{ url_for('static', filename='plots/daily_screen_time_hours vs occupation.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Ocupación y Uso diario de pantalla</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila invertida">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 5</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs occupation.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Ocupación y Horas de descanso</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 6</div><img src="{{ url_for('static', filename='plots/stress_level vs occupation.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Ocupación y Nivel de estrés</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+     </div>
+
+
+     <!-- CATEGORÍA 3 -->
+     <div class="categoria">
+       <h2 class="categoria-titulo">Relacionado al estrés:</h2>
+
+
+       <div class="grafico-fila">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 7</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs stress_level.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Estrés y Calidad de dormir</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila invertida">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 8</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs stress_level.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Estrés y Horas de descanso</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 9</div><img src="{{ url_for('static', filename='plots/mental_fatigue_score vs stress_level.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Estrés y Fatiga mental</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+     </div>
+
+
+     <!-- CATEGORÍA 4 -->
+     <div class="categoria">
+       <h2 class="categoria-titulo">Relacionado al tiempo en pantalla diario:</h2>
+
+
+       <div class="grafico-fila">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 10</div><img src="{{ url_for('static', filename='plots/mental_fatigue_score vs daily_screen_time_hours.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Uso diario de pantalla y Nivel de fatiga mental</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila invertida">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 11</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs daily_screen_time_hours.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Uso diario de pantalla y Calidad de dormir</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+     </div>
+
+
+     <!-- CATEGORÍA 5 -->
+     <div class="categoria">
+       <h2 class="categoria-titulo">Relacionado a la cantidad de horas dormidas:</h2>
+
+
+       <div class="grafico-fila">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 12</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs sleep_quality_score.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Horas de descanso y Calidad de dormir</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila invertida">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 13</div><img src="{{ url_for('static', filename='plots/sleep_duration_hours vs caffeine_intake_cups.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Horas de descanso y Vasos de cafe por dia</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+     </div>
+
+
+     <!-- CATEGORÍA 6 -->
+     <div class="categoria">
+       <h2 class="categoria-titulo">Relacionado a la calidad de descanso:</h2>
+
+
+       <div class="grafico-fila">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 14</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs phone_usage_before_sleep_minutes.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Calidad de descanso y Uso del celular antes de dormir (min)</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila invertida">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 15</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs mental_fatigue_score.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Calidad de descanso y Nivel de fatiga</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+
+
+       <div class="grafico-fila">
+         <div class="grafico-imagen"><div class="grafico-placeholder">Gráfico 16</div><img src="{{ url_for('static', filename='plots/sleep_quality_score vs occupation.png') }}"></div>
+         <div class="grafico-texto">
+           <h3>Calidad de descanso y Ocupacion</h3>
+           <p>Explicación de lo que muestra este gráfico y qué conclusiones podemos sacar.</p>
+         </div>
+       </div>
+     </div>
+
+
+   </div>
+ </main>
+
+
+ <footer>
+   <p class="footer">&copy; 2026 Salud & Sueño. Todos los derechos reservados.</p>
+ </footer>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,128 @@
+/* Hero */
+section{
+   padding: 0px;
+}
+
+
+.predicciones{
+   display: flex;
+   flex-direction: row;
+}
+
+
+.pred-hero {
+ background-color: var(--azul);
+ color: white;
+ padding: 4rem 3rem 4rem;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ gap: 2rem;
+}
+
+
+.pred-hero-texto {
+ flex: 1;
+}
+
+
+.pred-hero-texto h1 {
+ font-size: clamp(1.5rem, 3vw, 2.2rem);
+ text-decoration: underline;
+ margin-bottom: 1rem;
+}
+
+
+.pred-hero-texto h2 {
+ font-size: 1rem;
+ font-weight: 400;
+ color: var(--rosa);
+ line-height: 1.6;
+}
+
+
+.pred-hero-img {
+ width: 700px;
+ height: 350px;
+}
+
+
+/* Grilla 2 columnas 3 filas */
+.pred-lista {
+ display: flex;
+ flex-direction: column;
+ gap: 1.5rem;
+ padding-bottom: 3rem;
+ margin-top: 50px;
+}
+
+
+.pred-fila {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 1.5rem;
+}
+
+
+/* Bloque */
+.pred-bloque {
+ display: flex;
+ flex-direction: column;
+}
+
+
+.pred-tema {
+ background-color: var(--azul);
+ padding: 1.2rem 2rem;
+}
+
+
+.pred-tema h2 {
+ font-size: 1.2rem;
+ font-weight: normal;
+ font-style: italic;
+ color: var(--rosa);
+ margin: 0;
+}
+
+
+.pred-detalle {
+ background-color: var(--blanco);
+ padding: 1.8rem 2rem;
+ border-top: 3px solid var(--verde);
+ box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+ flex: 1;
+}
+
+
+.pred-detalle p {
+ color: var(--texto-suave);
+ font-size: 0.95rem;
+ line-height: 1.8;
+}
+
+
+.pred-detalle span {
+ font-weight: bold;
+ color: var(--azul);
+}
+
+
+/* Responsive */
+@media (max-width: 700px) {
+ .pred-fila {
+   grid-template-columns: 1fr;
+ }
+
+
+ .pred-hero {
+   flex-direction: column;
+ }
+
+
+ .pred-hero-img {
+   width: 100%;
+   height: 220px;
+ }
+}
+    
