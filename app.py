@@ -122,6 +122,8 @@ def generar_grafico_barra(x_value, y_value):
 """
 @app.route("/plots")
 def graph():
+
+
     generar_grafico_lineal("age", "sleep_duration_hours")
     generar_grafico_lineal("age", "daily_screen_time_hours")
     generar_grafico_lineal("age", "stress_level")

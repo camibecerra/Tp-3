@@ -108,7 +108,6 @@ nav ul li a:hover {
  font-size: clamp(1.5rem, 3vw, 2.2rem);
  margin-bottom: 1.2rem;
  line-height: 1.35;
- text-decoration: underline;
 }
 
 
