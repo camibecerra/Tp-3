@@ -1,11 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario – Salud & Sueño</title>
+  <link rel="stylesheet" href="/static/index.css" />
+  <link rel="stylesheet" href="/static/formulario.css" />
 </head>
 <body>
-    
+
+  <header>
+    <nav>
+      <h1>Salud & Sueño</h1>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/graficos">Gráficos</a></li>
+        <li><a href="/predicciones">Predicciones</a></li>
+        <li><a href="/formulario">Formulario</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="formulario">
+        <div class="form-hero">
+            <div class="form-hero-texto">
+                <h1>¿Cómo es tu situación?:</h1>
+                <h2>Completá el formulario con tus datos y te diremos tu puntaje de salud del sueño y en qué aspectos podés mejorar.</h2>
+            </div>
+        </div>
+        <img class="formulario-hero-img" src="/static/formulario.png" alt="formulario y variables">
+    </section>
+
+    <div class="form-container">
+      <form method="POST" action="/formulario">
+
+        <div class="form-grid">
+
+          <div class="form-grupo">
+            <label for="age">Edad <span>(solo para mayores de edad)</span></label>
+            <input type="number" id="age" name="age" min="18" max="100" placeholder="ej: 25" required>
+          </div>
+
+          <div class="form-grupo">
+            <label for="gender">Género</label>
+            <select id="gender" name="gender" required>
+              <option value="" disabled selected>Seleccioná</option>
+              <option value="Female">Femenino</option>
+              <option value="Male">Masculino</option>
+              <option value="Other">Otro</option>
+            </select>
+          </div>
+
+          <div class="form-grupo">
+            <label for="occupation">Ocupación</label>
+            <input type="text" id="occupation" name="occupation" placeholder="ej: Estudiante, Médico, Diseñador..." required style="text-transform: capitalize;" oninput="this.value = this.value.replace(/\b\w/g, c => c.toUpperCase())">
+          </div>
+
+          <div class="form-grupo">
+            <label for="daily_screen_time_hours">Horas de pantalla por día <span>(0 a 24)</span></label>
+            <input type="number" id="daily_screen_time_hours" name="daily_screen_time_hours" min="0" max="24" step="0.5" placeholder="ej: 5" required>
+          </div>
+
+          <div class="form-grupo">
+            <label for="phone_usage_before_sleep_minutes">Minutos de celular antes de dormir <span>(0 a 1500)</span></label>
+            <input type="number" id="phone_usage_before_sleep_minutes" name="phone_usage_before_sleep_minutes" min="0" max="1500" placeholder="ej: 30" required>
+          </div>
+
+          <div class="form-grupo">
+            <label for="sleep_duration_hours">Horas que dormís por noche <span>(0 a 24)</span></label>
+            <input type="number" id="sleep_duration_hours" name="sleep_duration_hours" min="0" max="24" step="0.5" placeholder="ej: 7" required>
+          </div>
+
+          <div class="form-grupo">
+            <label for="sleep_quality_score">¿Cómo calificarías tu calidad de sueño? <span>(1 a 10)</span></label>
+            <input type="number" id="sleep_quality_score" name="sleep_quality_score" min="1" max="10" step="0.5" placeholder="ej: 6" required>
+          </div>
+
+          <div class="form-grupo">
+            <label for="stress_level">Nivel de estrés <span>(1 a 10)</span></label>
+            <input type="number" id="stress_level" name="stress_level" min="1" max="10" step="0.5" placeholder="ej: 7" required>
+          </div>
+
+          <div class="form-grupo">
+            <label for="caffeine_intake_cups">Cafés por día </label>
+            <input type="number" id="caffeine_intake_cups" name="caffeine_intake_cups" min="0" placeholder="ej: 2" required>
+          </div>
+
+          <div class="form-grupo">
+            <label for="physical_activity_minutes">Minutos de actividad física por día <span>(0 a 1500)</span></label>
+            <input type="number" id="physical_activity_minutes" name="physical_activity_minutes" min="0" max="1500" placeholder="ej: 30" required>
+          </div>
+
+          <div class="form-grupo">
+            <label for="notifications_received_per_day">Notificaciones que recibís por día </label>
+            <input type="number" id="notifications_received_per_day" name="notifications_received_per_day" min="0" placeholder="ej: 100" required>
+          </div>
+
+          <div class="form-grupo">
+            <label for="mental_fatigue_score">Nivel de fatiga mental <span>(1 a 10)</span></label>
+            <input type="number" id="mental_fatigue_score" name="mental_fatigue_score" min="1" max="10" step="0.5" placeholder="ej: 6" required>
+          </div>
+
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-graficos">Ver mi resultado</button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- RESULTADO (solo se muestra si Flask lo manda) -->
+    {% if resultado %}
+    <div class="resultado-container" id="resultado">
+
+      <div class="resultado-puntaje">
+        <h2>Tu puntaje de salud del sueño</h2>
+        <div class="puntaje-numero">{{ resultado.puntaje }} <span>/ 10</span></div>
+        <p class="puntaje-label">{{ resultado.label }}</p>
+      </div>
+
+      <div class="resultado-aspectos">
+        <h2>Aspectos a destacar:</h2>
+        <div class="aspectos-grid">
+          {% for aspecto in resultado.aspectos %}
+          <div class="aspecto-card {{ aspecto.tipo }}">
+            <h3>{{ aspecto.titulo }}</h3>
+            <p>{{ aspecto.descripcion }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="resultado-comparacion">
+        <h2>Tu situación vs el promedio:</h2>
+        <div class="comparacion-grid">
+          {% for item in resultado.comparacion %}
+          <div class="comparacion-item">
+            <span class="comp-label">{{ item.label }}</span>
+            <span class="comp-tuvalor">Vos: {{ item.tuvalor }}</span>
+            <span class="comp-promedio">Promedio: {{ item.promedio }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+    {% endif %}
+
+  </main>
+  
+  <script>
+    window.addEventListener('load', function() {
+      const resultado = document.getElementById('resultado');
+      const boton = document.querySelector('.btn-graficos');
+      const campos = document.querySelectorAll('input[required], select[required]');
+
+      // Si ya existe el resultado (viene del POST), mostrarlo directo
+      if (resultado) {
+        resultado.style.display = 'block';
+        return;
+      }
+
+      // Si no hay resultado todavía, validar al apretar el botón
+      if (boton) {
+        boton.addEventListener('click', function() {
+          let todosValidos = true;
+
+          campos.forEach(function(campo) {
+            const errorPrevio = campo.parentNode.querySelector('.error-msg');
+            if (errorPrevio) errorPrevio.remove();
+            campo.style.borderColor = '';
+
+            const valor = campo.value.trim();
+
+            if (!valor) {
+              mostrarError(campo, 'Este campo es obligatorio.');
+              todosValidos = false;
+              return;
+            }
+
+            if (campo.type === 'number') {
+              const num = parseFloat(valor);
+              const min = parseFloat(campo.min);
+              const max = parseFloat(campo.max);
+
+              if (isNaN(num)) {
+                mostrarError(campo, 'Ingresá un número válido.');
+                todosValidos = false;
+                return;
+              }
+
+              if (!isNaN(min) && !isNaN(max) && (num < min || num > max)) {
+                mostrarError(campo, `El valor debe estar entre ${min} y ${max}.`);
+                todosValidos = false;
+                return;
+              }
+
+              if (!isNaN(min) && isNaN(max) && num < min) {
+                mostrarError(campo, `El valor mínimo es ${min}.`);
+                todosValidos = false;
+                return;
+              }
+            }
+
+            campo.style.borderColor = 'var(--verde)';
+          });
+        });
+      }
+
+      campos.forEach(function(campo) {
+        campo.addEventListener('input', function() {
+          const errorPrevio = campo.parentNode.querySelector('.error-msg');
+          if (errorPrevio) errorPrevio.remove();
+          campo.style.borderColor = '';
+        });
+      });
+
+      function mostrarError(campo, mensaje) {
+        campo.style.borderColor = '#e07070';
+        const error = document.createElement('span');
+        error.className = 'error-msg';
+        error.textContent = mensaje;
+        campo.parentNode.appendChild(error);
+      }
+    });
+  </script>
+
+  <footer>
+    <p class="footer">&copy; 2026 Salud & Sueño. Todos los derechos reservados.</p>
+  </footer>
+
 </body>
 </html>
